@@ -18,6 +18,9 @@ public class Book {
     }
 
     public void setId(int id) {
+        if ( id <= 0){
+            throw new RuntimeException("Некорректный Id!");
+        }
         this.id = id;
     }
 
@@ -105,8 +108,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id == book.id &&
-                PublicationYear == book.PublicationYear &&
+        return PublicationYear == book.PublicationYear &&
                 NumbersOfPages == book.NumbersOfPages &&
                 NumberOfAwards == book.NumberOfAwards &&
                 Objects.equals(NameBook, book.NameBook) &&
@@ -116,6 +118,6 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, NameBook, NameWriter, BookGenre, PublicationYear, NumbersOfPages, NumberOfAwards);
+        return Objects.hash(NameBook, NameWriter, BookGenre, PublicationYear, NumbersOfPages, NumberOfAwards);
     }
 }
