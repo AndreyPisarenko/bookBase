@@ -58,7 +58,7 @@ public class BookDaoImplJava implements BookDao {
 
     @Override
     public List<Book> findAll() {
-        return null;
+        return books;
     }
 
 
