@@ -3,6 +3,7 @@ package ua.com.base;
 import java.util.List;
 
 public interface BookDao {
+
     void create(Book book);
 
     void update(Book book);

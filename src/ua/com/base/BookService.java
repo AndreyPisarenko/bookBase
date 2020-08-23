@@ -2,7 +2,7 @@ package ua.com.base;
 
 import java.util.List;
 
-public interface UserService {
+public interface BookService{
 
     void create(Book book);
 

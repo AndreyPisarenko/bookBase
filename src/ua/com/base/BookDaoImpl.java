@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BookDaoImplJava implements BookDao {
+public class BookDaoImpl implements BookDao {
 
-    private List<Book> books = new ArrayList<>();
+    private final List<Book> books = new ArrayList<>();
 
 
     @Override
@@ -24,8 +24,7 @@ public class BookDaoImplJava implements BookDao {
                 exist = true;
             }
         }
-        if (!exist) ;
-        {
+        if (!exist) {
             throw new RuntimeException("Книга не найдена!");
         }
     }
@@ -39,8 +38,7 @@ public class BookDaoImplJava implements BookDao {
                 exist = true;
             }
         }
-        if (!exist) ;
-        {
+        if (!exist) {
             throw new RuntimeException("Книга не найдена!");
         }
 
