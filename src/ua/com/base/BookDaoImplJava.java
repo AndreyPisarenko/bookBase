@@ -61,26 +61,22 @@ public class BookDaoImplJava implements BookDao {
         return null;
     }
 
+
     @Override
     public List<Book> findByNameBook(String NameBook) {
-        List<Book> tempBook = new ArrayList<>();
-        for (Book currentBook : books) {
-            if (currentBook.getNameBook().equals(books)) {
-                tempBook.add(currentBook);
-            }
-        }
+
         return books.stream().filter(book -> book.getNameWriter().equals(NameBook)).collect(Collectors.toList());
-        return tempBook;
     }
 
     @Override
     public List<Book> findByNameWriter(String NameWriter) {
-        return null;
+
+        return books.stream().filter(book -> book.getNameWriter().equals(NameWriter)).collect(Collectors.toList());
     }
 
     @Override
     public List<Book> findByBookGenre(String BookGenre) {
 
-        return null;
+        return books.stream().filter(book -> book.getBookGenre().equals(BookGenre)).collect(Collectors.toList());
     }
 }

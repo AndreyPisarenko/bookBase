@@ -11,7 +11,7 @@ public interface BookDao {
 
     Book findById(int id);
 
-    List<Book> findAll(String findAll);
+    List<Book> findAll();
 
     List<Book> findByNameBook(String NameBook);
 
