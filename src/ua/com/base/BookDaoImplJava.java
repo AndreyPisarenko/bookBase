@@ -2,6 +2,7 @@ package ua.com.base;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookDaoImplJava implements BookDao {
 
@@ -15,23 +16,44 @@ public class BookDaoImplJava implements BookDao {
 
     @Override
     public void update(Book book) {
-        Book currentBook;
-        for (Book b : books) {
-            if (b.getId() == book.getId()){
-                b.setNameBook(book.getNameBook());
-                b.setPublicationYear(book.getPublicationYear());
+        boolean exist = false;
+        for (Book currentBook : books) {
+            if (currentBook.getId() == book.getId()) {
+                currentBook.setNameBook(book.getNameBook());
+                currentBook.setPublicationYear(book.getPublicationYear());
+                exist = true;
             }
+        }
+        if (!exist) ;
+        {
+            throw new RuntimeException("Книга не найдена!");
         }
     }
 
     @Override
     public void delete(int id) {
+        boolean exist = false;
+        for (Book currentBook : books) {
+            if (currentBook.getId() == id) {
+                books.remove(currentBook);
+                exist = true;
+            }
+        }
+        if (!exist) ;
+        {
+            throw new RuntimeException("Книга не найдена!");
+        }
 
     }
 
     @Override
     public Book findById(int id) {
-        return null;
+        for (Book currentBook : books) {
+            if (currentBook.getId() == id) {
+                return currentBook;
+            }
+        }
+        throw new RuntimeException("User not found");
     }
 
     @Override
@@ -41,7 +63,14 @@ public class BookDaoImplJava implements BookDao {
 
     @Override
     public List<Book> findByNameBook(String NameBook) {
-        return null;
+        List<Book> tempBook = new ArrayList<>();
+        for (Book currentBook : books) {
+            if (currentBook.getNameBook().equals(books)) {
+                tempBook.add(currentBook);
+            }
+        }
+        return books.stream().filter(book -> book.getNameWriter().equals(NameBook)).collect(Collectors.toList());
+        return tempBook;
     }
 
     @Override
@@ -51,6 +80,7 @@ public class BookDaoImplJava implements BookDao {
 
     @Override
     public List<Book> findByBookGenre(String BookGenre) {
+
         return null;
     }
 }
