@@ -30,7 +30,7 @@ public class Book {
     }
 
     public void setNameBook(String nameBook) {
-        if (nameBook != null && nameBook.isBlank()) {
+        if (nameBook != null && !nameBook.isBlank()) {
         } else {
             throw new RuntimeException("Введите корректное название книги!");
         }
@@ -43,7 +43,7 @@ public class Book {
     }
 
     public void setNameWriter(String nameWriter) {
-        if (nameWriter != null && nameWriter.isBlank()) {
+        if (nameWriter != null && !nameWriter.isBlank()) {
         } else {
             throw new RuntimeException("Введите корректное имя писателя!");
         }
@@ -56,7 +56,7 @@ public class Book {
     }
 
     public void setBookGenre(String bookGenre) {
-        if (bookGenre != null && bookGenre.isBlank()) {
+        if (bookGenre != null && !bookGenre.isBlank()) {
         } else {
             throw new RuntimeException("Введите корректный жанр!");
         }
