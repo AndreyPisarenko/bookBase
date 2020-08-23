@@ -24,7 +24,7 @@ public class Book {
         this.id = id;
     }
 
-
+    
     public String getNameBook() {
         return NameBook;
     }
@@ -37,7 +37,7 @@ public class Book {
         this.NameBook = nameBook;
     }
 
-
+    
     public String getNameWriter() {
         return NameWriter;
     }
@@ -50,7 +50,7 @@ public class Book {
         this.NameWriter = nameWriter;
     }
 
-
+    
     public String getBookGenre() {
         return BookGenre;
     }
@@ -63,7 +63,7 @@ public class Book {
         this.BookGenre = bookGenre;
     }
 
-
+    
     public int getPublicationYear() {
         return PublicationYear;
     }
@@ -76,7 +76,7 @@ public class Book {
         this.PublicationYear = publicationYear;
     }
 
-
+    
     public int getNumbersOfPages() {
         return NumbersOfPages;
     }
@@ -89,7 +89,7 @@ public class Book {
         this.NumbersOfPages = numbersOfPages;
     }
 
-
+    
     public int getNumberOfAwards() {
         return NumberOfAwards;
     }

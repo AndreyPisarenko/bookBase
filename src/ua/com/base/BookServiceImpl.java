@@ -11,40 +11,41 @@ public class BookServiceImpl implements BookService {
     public void create(Book book) {
         int size = bookDao.findAll().size();
         book.setId(++size);
+        bookDao.create(book);
     }
 
     @Override
     public void update(Book book) {
-
+        bookDao.update(book);
     }
 
     @Override
     public void delete(int id) {
-
+        bookDao.delete(id);
     }
 
     @Override
     public Book findById(int id) {
-        return null;
+        return bookDao.findById(id);
     }
 
     @Override
     public List<Book> findAll() {
-        return null;
+        return bookDao.findAll();
     }
 
     @Override
     public List<Book> findByNameBook(String NameBook) {
-        return null;
+        return bookDao.findByNameBook(NameBook);
     }
 
     @Override
     public List<Book> findByNameWriter(String NameWriter) {
-        return null;
+        return bookDao.findByNameWriter(NameWriter);
     }
 
     @Override
     public List<Book> findByBookGenre(String BookGenre) {
-        return null;
+        return bookDao.findByBookGenre(BookGenre);
     }
 }
