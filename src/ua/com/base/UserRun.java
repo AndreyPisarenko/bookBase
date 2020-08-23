@@ -1,2 +1,4 @@
-package ua.com.base;public class UserRun {
+package ua.com.base;
+
+public class UserRun {
 }
