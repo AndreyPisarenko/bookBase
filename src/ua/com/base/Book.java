@@ -12,7 +12,7 @@ public class Book {
     private int NumbersOfPages;
     private int NumberOfAwards;
 
-    
+
     public int getId() {
         return id;
     }
@@ -119,5 +119,18 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hash(NameBook, NameWriter, BookGenre, PublicationYear, NumbersOfPages, NumberOfAwards);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", NameBook='" + NameBook + '\'' +
+                ", NameWriter='" + NameWriter + '\'' +
+                ", BookGenre='" + BookGenre + '\'' +
+                ", PublicationYear=" + PublicationYear +
+                ", NumbersOfPages=" + NumbersOfPages +
+                ", NumberOfAwards=" + NumberOfAwards +
+                '}';
     }
 }
