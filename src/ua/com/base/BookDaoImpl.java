@@ -42,7 +42,6 @@ public class BookDaoImpl implements BookDao {
         if (!exist) {
             throw new RuntimeException("Книга не найдена!");
         }
-
     }
 
     @Override
@@ -56,9 +55,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> findAll() {
-        return books;
-    }
+    public List<Book> findAll() { return books; }
 
 
     @Override
@@ -78,4 +75,13 @@ public class BookDaoImpl implements BookDao {
 
         return books.stream().filter(book -> book.getBookGenre().equals(BookGenre)).collect(Collectors.toList());
     }
+//    @Override
+//    public List<Book> findByNumbersOfPages(String NumbersOfPages) {
+//        return books.stream().filter(book -> book.getNumbersOfPages().equals(NumbersOfPages)).collect(Collectors.toList());
+//    }
+//
+//    @Override
+//    public List<Book> findByNumberOfAwards(String NumberOfAwards) {
+//        return books.stream().filter(book -> book.getNumberOfAwards().equals(NumberOfAwards)).collect(Collectors.toList());
+//    }
 }

@@ -34,7 +34,6 @@ public class Book {
         } else {
             throw new RuntimeException("Введите корректное название книги!");
         }
-        this.NameBook = nameBook;
     }
 
     
@@ -47,7 +46,6 @@ public class Book {
         } else {
             throw new RuntimeException("Введите корректное имя писателя!");
         }
-        this.NameWriter = nameWriter;
     }
 
     
@@ -60,7 +58,6 @@ public class Book {
         } else {
             throw new RuntimeException("Введите корректный жанр!");
         }
-        this.BookGenre = bookGenre;
     }
 
     
@@ -70,10 +67,10 @@ public class Book {
 
     public void setPublicationYear(int publicationYear) {
         if (publicationYear > 1000 && publicationYear < 2020) {
+            this.PublicationYear = publicationYear;
         } else {
             throw new RuntimeException("Введите корректную дату публикации!");
         }
-        this.PublicationYear = publicationYear;
     }
 
     

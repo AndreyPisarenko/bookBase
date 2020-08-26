@@ -25,20 +25,15 @@ public class UserRun {
             while ((line = reader.readLine()) != null) {
 
                 if (line.equals("0")) {
-                    System.exit(1);
-                }
+                    System.exit(1); }
                 if (line.equals("1")) {
-                    createUser(line, reader);
-                }
+                    createBook(line, reader); }
                 if (line.equals("2")) {
-                    updateUser(line, reader);
-                }
+                    updateBook(line, reader); }
                 if (line.equals("3")) {
-                    deleteUser(line, reader);
-                }
+                    deleteBook(line, reader); }
                 if (line.equals("4")) {
-                    findByName(line, reader);
-                }
+                    findByName(line, reader); }
             }
             reader.close();
         } catch (IOException e) {
@@ -47,81 +42,59 @@ public class UserRun {
 
     }
 
-    private void createUser(String line, BufferedReader reader) {
-
+    private void createBook(String line, BufferedReader reader) {
         try {
-            System.out.println("Введите название книги ");
+            System.out.println("Введите название книги:");
             line = reader.readLine();
             String nameBook = line;
 
-            System.out.println("Введите год издания книги");
+            System.out.println("Введите год издания книги:");
             line = reader.readLine();
             int publicationYear = Integer.parseInt(line);
 
             Book book = new Book();
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
-
             controller.create(book);
-
             controller.findAll().forEach(System.out::println);
-
-            System.out.println("book = " + controller.findAll());
-
         } catch (IOException e) {
             e.printStackTrace();
-
-
         }
     }
 
-    private void updateUser(String line, BufferedReader reader) {
-
+    private void updateBook(String line, BufferedReader reader) {
         try {
-
-            System.out.println("Введите id книги");
+            System.out.println("Введите id книги:");
             line = reader.readLine();
             int id = Integer.parseInt(line);
-
-            System.out.println("Введите название книги ");
+            System.out.println("Введите название книги:");
             line = reader.readLine();
             String nameBook = line;
-
-            System.out.println("Введите год издания книги");
+            System.out.println("Введите год издания книги:");
             line = reader.readLine();
             int publicationYear = Integer.parseInt(line);
-
             Book book = controller.findById(id);
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
-
             controller.update(book);
             controller.findAll().forEach(System.out::println);
-
-            System.out.println("book = " + controller.findAll());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    private void deleteUser(String line, BufferedReader reader) {
+    private void deleteBook(String line, BufferedReader reader) {
 
         try {
-
-            System.out.println("Введите id книги");
+            System.out.println("Введите id книги:");
             line = reader.readLine();
             int id = Integer.parseInt(line);
-
             controller.delete(id);
             controller.findAll().forEach(System.out::println);
-
             System.out.println("book = " + controller.findAll());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    // Метод выкидывает налпоинтер!
     private void findByName(String line, BufferedReader reader) {
         try {
             System.out.println("Введите название книги");
@@ -132,6 +105,4 @@ public class UserRun {
             e.printStackTrace();
         }
     }
-
-
 }
