@@ -75,13 +75,16 @@ public class BookDaoImpl implements BookDao {
 
         return books.stream().filter(book -> book.getBookGenre().equals(BookGenre)).collect(Collectors.toList());
     }
-//    @Override
-//    public List<Book> findByNumbersOfPages(String NumbersOfPages) {
-//        return books.stream().filter(book -> book.getNumbersOfPages().equals(NumbersOfPages)).collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public List<Book> findByNumberOfAwards(String NumberOfAwards) {
-//        return books.stream().filter(book -> book.getNumberOfAwards().equals(NumberOfAwards)).collect(Collectors.toList());
-//    }
+
+    @Override
+    public List<Book> findByNumbersOfPages(int NumbersOfPages) {
+        return  books.stream().filter(book -> book.getNumbersOfPages().equals(NumbersOfPages)).collect(Collectors.toList());;
+    }
+
+    @Override
+    public List<Book> findByNumberOfAwards(int NumberOfAwards) {
+        return return  books.stream().filter(book -> book.getNumberOfAwards().equals(NumberOfAwards)).collect(Collectors.toList());;;
+    }
+
+
 }

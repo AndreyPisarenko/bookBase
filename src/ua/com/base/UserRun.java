@@ -21,9 +21,10 @@ public class UserRun {
             System.out.println(" 2 Обновить данные о книге по id ");
             System.out.println(" 3 Удалить книгу по id ");
             System.out.println(" 4 Найти по названию ");
+            System.out.println(" 5 Вывести все книги ");
+
             System.out.println(" 0 Закончить программу ");
             while ((line = reader.readLine()) != null) {
-
                 if (line.equals("0")) {
                     System.exit(1); }
                 if (line.equals("1")) {
@@ -34,6 +35,8 @@ public class UserRun {
                     deleteBook(line, reader); }
                 if (line.equals("4")) {
                     findByName(line, reader); }
+                if (line.equals("5")) {
+                    findAll(line, reader); }
             }
             reader.close();
         } catch (IOException e) {
@@ -56,7 +59,7 @@ public class UserRun {
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
             controller.create(book);
-            controller.findAll().forEach(System.out::println);
+            controller.findAll(line).forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +80,7 @@ public class UserRun {
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
             controller.update(book);
-            controller.findAll().forEach(System.out::println);
+            controller.findAll(line).forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -89,8 +92,8 @@ public class UserRun {
             line = reader.readLine();
             int id = Integer.parseInt(line);
             controller.delete(id);
-            controller.findAll().forEach(System.out::println);
-            System.out.println("book = " + controller.findAll());
+            controller.findAll(line).forEach(System.out::println);
+            System.out.println("book = " + controller.findAll(line));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,10 +102,16 @@ public class UserRun {
         try {
             System.out.println("Введите название книги");
             line = reader.readLine();
-            List<Book> users = controller.findByNameBook(line);
-            users.forEach(System.out::println);
+            List<Book> books = controller.findByNameBook(line);
+            books.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void findAll (String line, BufferedReader reader){
+        List<Book> books = controller.findAll(line);
+        books.forEach(System.out::println);
+        
     }
 }

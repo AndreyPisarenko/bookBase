@@ -12,7 +12,7 @@ public class UserController {
     public Book findById(int id) {
         return bookService.findById(id);
     }
-    public List<Book> findAll() {
+    public List<Book> findAll(String line) {
         return bookService.findAll();
     }
     public List<Book> findByNameBook(String NameBook) {

@@ -79,7 +79,7 @@ public class Book {
     }
 
     public void setNumbersOfPages(int numbersOfPages) {
-        if (numbersOfPages > 0 && numbersOfPages < 2000) {
+        if (numbersOfPages >= 1 && numbersOfPages < 2000) {
         } else {
             throw new RuntimeException("Введите корректное количество страниц!");
         }
@@ -99,7 +99,6 @@ public class Book {
         this.NumberOfAwards = numberOfAwards;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -108,9 +107,9 @@ public class Book {
         return PublicationYear == book.PublicationYear &&
                 NumbersOfPages == book.NumbersOfPages &&
                 NumberOfAwards == book.NumberOfAwards &&
-                Objects.equals(NameBook, book.NameBook) &&
-                Objects.equals(NameWriter, book.NameWriter) &&
-                Objects.equals(BookGenre, book.BookGenre);
+                NameBook.equals(book.NameBook) &&
+                NameWriter.equals(book.NameWriter) &&
+                BookGenre.equals(book.BookGenre);
     }
 
     @Override
