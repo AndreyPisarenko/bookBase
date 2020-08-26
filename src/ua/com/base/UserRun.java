@@ -16,32 +16,46 @@ public class UserRun {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("Выберите пункт меню ");
-            line = reader.readLine();
-            System.out.println("line = " + line);
-
-            if (line.equals("1")){
-                System.out.println("Введите название книги ");
-                line=reader.readLine();
-                String nameBook = line;
-                System.out.println("Название = " + line);
-
-                System.out.println("Введите год издания книги");
-                line=reader.readLine();
-                System.out.println("Название = " + line);
-                int publicationYear = Integer.parseInt(line);
-
-                Book book =new Book();
-                book.setNameBook(nameBook);
-                book.setPublicationYear(publicationYear);
-
-                controller.create(book);
-
-                System.out.println("book = " + controller.findAll());
+            while ((line = reader.readLine()) != null) {
+                System.out.println("line = " + line);
+                if (line.equals("1")) {
+                    createUser(line, reader);
+                }
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void createUser(String line, BufferedReader reader) {
+
+        try {
+            System.out.println("Введите название книги ");
+            line = reader.readLine();
+            String nameBook = line;
+            System.out.println("Название: " + line);
+
+            System.out.println("Введите год издания книги");
+            line = reader.readLine();
+            System.out.println("Год издания: " + line);
+            int publicationYear = Integer.parseInt(line);
+
+            Book book = new Book();
+            book.setNameBook(nameBook);
+            book.setPublicationYear(publicationYear);
+
+            controller.create(book);
+
+            controller.findAll().forEach(System.out::println);
+
+            System.out.println("book = " + controller.findAll());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+
+        }
     }
 }
