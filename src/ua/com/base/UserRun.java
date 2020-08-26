@@ -3,6 +3,7 @@ package ua.com.base;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class UserRun {
 
@@ -18,7 +19,8 @@ public class UserRun {
             System.out.println("Выберите пункт меню ");
             System.out.println(" 1 Внести книгу ");
             System.out.println(" 2 Обновить данные о книге по id ");
-            System.out.println(" 2 Удалить книгу по id ");
+            System.out.println(" 3 Удалить книгу по id ");
+            System.out.println(" 4 Найти по названию ");
             System.out.println(" 0 Закончить программу ");
             while ((line = reader.readLine()) != null) {
 
@@ -33,6 +35,9 @@ public class UserRun {
                 }
                 if (line.equals("3")) {
                     deleteUser(line, reader);
+                }
+                if (line.equals("4")) {
+                    findByName(line, reader);
                 }
             }
             reader.close();
@@ -116,7 +121,17 @@ public class UserRun {
             e.printStackTrace();
         }
     }
-
+    // Метод выкидывает налпоинтер!
+    private void findByName(String line, BufferedReader reader) {
+        try {
+            System.out.println("Введите название книги");
+            line = reader.readLine();
+            List<Book> users = controller.findByNameBook(line);
+            users.forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

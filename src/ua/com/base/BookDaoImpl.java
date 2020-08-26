@@ -36,6 +36,7 @@ public class BookDaoImpl implements BookDao {
             if (currentBook.getId() == id) {
                 books.remove(currentBook);
                 exist = true;
+                break;
             }
         }
         if (!exist) {
