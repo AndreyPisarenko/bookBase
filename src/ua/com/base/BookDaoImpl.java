@@ -83,7 +83,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findByNumberOfAwards(int NumberOfAwards) {
-        return return  books.stream().filter(book -> book.getNumberOfAwards().equals(NumberOfAwards)).collect(Collectors.toList());;;
+        return  books.stream().filter(book -> book.getNumberOfAwards().equals(NumberOfAwards)).collect(Collectors.toList());;;
     }
 
 
