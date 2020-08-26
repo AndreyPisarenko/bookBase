@@ -16,10 +16,23 @@ public class UserRun {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("Выберите пункт меню ");
+            System.out.println(" 1 Внести книгу ");
+            System.out.println(" 2 Обновить данные о книге по id ");
+            System.out.println(" 2 Удалить книгу по id ");
+            System.out.println(" 0 Закончить программу ");
             while ((line = reader.readLine()) != null) {
-                System.out.println("line = " + line);
+
+                if (line.equals("0")) {
+                    System.exit(1);
+                }
                 if (line.equals("1")) {
                     createUser(line, reader);
+                }
+                if (line.equals("2")) {
+                    updateUser(line, reader);
+                }
+                if (line.equals("3")) {
+                    deleteUser(line, reader);
                 }
             }
             reader.close();
@@ -35,11 +48,9 @@ public class UserRun {
             System.out.println("Введите название книги ");
             line = reader.readLine();
             String nameBook = line;
-            System.out.println("Название: " + line);
 
             System.out.println("Введите год издания книги");
             line = reader.readLine();
-            System.out.println("Год издания: " + line);
             int publicationYear = Integer.parseInt(line);
 
             Book book = new Book();
@@ -58,4 +69,54 @@ public class UserRun {
 
         }
     }
+
+    private void updateUser(String line, BufferedReader reader) {
+
+        try {
+
+            System.out.println("Введите id книги");
+            line = reader.readLine();
+            int id = Integer.parseInt(line);
+
+            System.out.println("Введите название книги ");
+            line = reader.readLine();
+            String nameBook = line;
+
+            System.out.println("Введите год издания книги");
+            line = reader.readLine();
+            int publicationYear = Integer.parseInt(line);
+
+            Book book = controller.findById(id);
+            book.setNameBook(nameBook);
+            book.setPublicationYear(publicationYear);
+
+            controller.update(book);
+            controller.findAll().forEach(System.out::println);
+
+            System.out.println("book = " + controller.findAll());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void deleteUser(String line, BufferedReader reader) {
+
+        try {
+
+            System.out.println("Введите id книги");
+            line = reader.readLine();
+            int id = Integer.parseInt(line);
+
+            controller.delete(id);
+            controller.findAll().forEach(System.out::println);
+
+            System.out.println("book = " + controller.findAll());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

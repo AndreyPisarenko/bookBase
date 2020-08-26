@@ -16,11 +16,17 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void update(Book book) {
-        bookDao.update(book);
+        if (book.getId() <= 0){
+            throw new RuntimeException("Некоректный id");
+        }
+            bookDao.update(book);
     }
 
     @Override
     public void delete(int id) {
+        if (id <= 0){
+            throw new RuntimeException("Некоректный id");
+        }
         bookDao.delete(id);
     }
 
