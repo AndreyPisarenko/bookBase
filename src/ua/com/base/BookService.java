@@ -12,6 +12,6 @@ public interface BookService{
     List<Book> findByNameBook(String NameBook);
     List<Book> findByNameWriter(String NameWriter);
     List<Book> findByBookGenre(String BookGenre);
-    List<Book> findByNumbersOfPages(int NumbersOfPages);
-    List<Book> findByNumberOfAwards(int NumberOfAwards);
+//    List<Book> findByNumbersOfPages(int NumbersOfPages);
+//    List<Book> findByNumberOfAwards(int NumberOfAwards);
 }

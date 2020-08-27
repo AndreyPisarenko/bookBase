@@ -37,6 +37,15 @@ public class UserRun {
                     findByName(line, reader); }
                 if (line.equals("5")) {
                     findAll(line, reader); }
+
+                System.out.println("Выберите пункт меню ");
+                System.out.println(" 1 Внести книгу ");
+                System.out.println(" 2 Обновить данные о книге по id ");
+                System.out.println(" 3 Удалить книгу по id ");
+                System.out.println(" 4 Найти по названию ");
+                System.out.println(" 5 Вывести все книги ");
+
+                System.out.println(" 0 Закончить программу ");
             }
             reader.close();
         } catch (IOException e) {
@@ -51,13 +60,34 @@ public class UserRun {
             line = reader.readLine();
             String nameBook = line;
 
+            System.out.println("Введите автора:");
+            line = reader.readLine();
+            String nameWriter = line;
+
+            System.out.println("Введите жанр книги:");
+            line = reader.readLine();
+            String bookGenre = line;
+
             System.out.println("Введите год издания книги:");
             line = reader.readLine();
             int publicationYear = Integer.parseInt(line);
 
+            System.out.println("Введите колличество страниц:");
+            line = reader.readLine();
+            int numbersOfPages = Integer.parseInt(line);
+
+            System.out.println("Введите колличество наград:");
+            line = reader.readLine();
+            int numberOfAwards = Integer.parseInt(line);
+
             Book book = new Book();
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
+            book.setNumbersOfPages(numbersOfPages);
+            book.setNumberOfAwards(numberOfAwards);
+            book.setNameWriter(nameWriter);
+            book.setBookGenre(bookGenre);
+
             controller.create(book);
             controller.findAll(line).forEach(System.out::println);
         } catch (IOException e) {
@@ -70,15 +100,40 @@ public class UserRun {
             System.out.println("Введите id книги:");
             line = reader.readLine();
             int id = Integer.parseInt(line);
+
             System.out.println("Введите название книги:");
             line = reader.readLine();
             String nameBook = line;
+
+            System.out.println("Введите автора:");
+            line = reader.readLine();
+            String nameWriter = line;
+
+            System.out.println("Введите жанр книги:");
+            line = reader.readLine();
+            String bookGenre = line;
+
             System.out.println("Введите год издания книги:");
             line = reader.readLine();
             int publicationYear = Integer.parseInt(line);
+
+            System.out.println("Введите колличество страниц:");
+            line = reader.readLine();
+            int numbersOfPages = Integer.parseInt(line);
+
+            System.out.println("Введите колличество наград:");
+            line = reader.readLine();
+            int numberOfAwards = Integer.parseInt(line);
+
+
             Book book = controller.findById(id);
             book.setNameBook(nameBook);
             book.setPublicationYear(publicationYear);
+            book.setNumbersOfPages(numbersOfPages);
+            book.setNumberOfAwards(numberOfAwards);
+            book.setNameWriter(nameWriter);
+            book.setBookGenre(bookGenre);
+
             controller.update(book);
             controller.findAll(line).forEach(System.out::println);
         } catch (IOException e) {
